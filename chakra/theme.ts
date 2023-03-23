@@ -1,7 +1,10 @@
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 
 // 2. Add your color mode config
-const config: ThemeConfig = {
+const config = {
+  font: {
+    body: 'Source Code Pro'
+  },
   initialColorMode: 'dark',
   useSystemColorMode: false,
 }
