@@ -4,12 +4,12 @@
 
 .typewriter::after {
   content: "";
-  width: 5px;
+  width: 4px;
   height: 30px;
-  background: var(--chakra-colors-orange-400);
+  background: var(--chakra-colors-yellow-600);
   display: inline-block;
   margin-left: 5px;
-  top: 10px;
+  margin-top: 10px;
   animation: cursor-blink 1.5s steps(2) infinite;
 }
 

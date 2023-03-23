@@ -9,14 +9,14 @@ type TypeWriterProps = {
 
 const TypeWriter: React.FC<TypeWriterProps> = ({
   delay = 0,
-  speed = 300,
+  speed = 250,
   content,
 }) => {
   const [text, setText] = useState('');
 
   if (text !== content) {
     setTimeout(() => {
-      setText((prevText) => content.substring(0, prevText.length + 1))
+      setText(content.substring(0, text.length + 1))
     }, text == '' ? speed + delay : speed);
   }
 

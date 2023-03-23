@@ -1,15 +1,19 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-// 2. Add your color mode config
-const config = {
-  font: {
-    body: 'Source Code Pro'
+const themeConfig = {
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  } as ThemeConfig,
+  styles: {
+    global: {
+      body: {
+        fontFamily: 'Nunito',
+      },
+    },
   },
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-}
+};
 
-// 3. extend the theme
-const theme = extendTheme({ config })
+const theme = extendTheme(themeConfig)
 
 export default theme;
