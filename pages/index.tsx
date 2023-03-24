@@ -117,7 +117,7 @@ const MySummary = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowMySummary(true);
-    }, 2000);
+    }, 2200);
   }, [])
 
   return <Box mt={10} pr={10}>
