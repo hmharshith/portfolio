@@ -1,0 +1,35 @@
+.main {
+  padding: 15px;
+}
+
+.typewriter {
+  font-family: Nunito;
+  display: flex;
+  align-items: center;
+}
+.typewriter::after {
+  content: "";
+  width: 4px;
+  height: 37px;
+  margin-top: -2px;
+  background: var(--chakra-colors-yellow-300);
+  display: inline-block;
+  margin-left: 5px;
+  animation: cursor-blink 1.2s infinite;
+  animation-delay: 2.3s;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 10px;
+  }
+}

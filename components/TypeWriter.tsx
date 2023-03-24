@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import styles from '@/styles/Home.module.css'
+import { useState } from "react";
+import { Text } from "@chakra-ui/react";
 
 type TypeWriterProps = {
-  delay?: number,
-  speed?: number,
+  typeAfter?: number,
+  typingDelay?: number,
   content: string,
 }
 
 const TypeWriter: React.FC<TypeWriterProps> = ({
-  delay = 0,
-  speed = 250,
+  typeAfter = 0,
+  typingDelay = 100,
   content,
 }) => {
   const [text, setText] = useState('');
@@ -17,12 +17,12 @@ const TypeWriter: React.FC<TypeWriterProps> = ({
   if (text !== content) {
     setTimeout(() => {
       setText(content.substring(0, text.length + 1))
-    }, text == '' ? speed + delay : speed);
+    }, text == '' ? typeAfter : typingDelay);
   }
 
-  return <span className={styles.typewriter}>
+  return <Text className='typewriter'>
     {text}
-  </span>
+  </Text>
 }
 
 export default TypeWriter;
