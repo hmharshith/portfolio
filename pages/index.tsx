@@ -47,7 +47,7 @@ export default function Home() {
                 style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
               >
                 {value => <Image
-                  src={'/freelancer.png'}
+                  src={'/freelancer_optimized.png'}
                   alt='Harshith HM'
                   width={200}
                   height={200}
@@ -93,7 +93,7 @@ export default function Home() {
                 style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
               >
                 {value => <Image
-                  src={'/freelancer.png'}
+                  src={'/freelancer_optimized.png'}
                   alt='Harshith HM'
                   width={350}
                   height={350}
@@ -125,7 +125,7 @@ const MySummary = () => {
           query={['Software Engineer', '5 years']}
           styles={{ bg: 'yellow.100', px: '1.5', rounded: 'full' }}
         >
-          I'm a Software Engineer from Bangalore, India with nearly 5 years of experience, currently building the
+          I&#39;m a Software Engineer from Bangalore, India with nearly 5 years of experience, currently building the
           frontend applications for consumer products at
         </Highlight>
         {' '}

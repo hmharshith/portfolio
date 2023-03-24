@@ -11,7 +11,7 @@ const PageHeader = () => {
   const onColorToggleClick = () => {
     toggleColorMode();
     toast({
-      description: `You have changed theme to ${colorMode == 'dark' ? 'light' : 'dark'} mode`,
+      description: `Theme changed to ${colorMode == 'dark' ? 'light' : 'dark'} mode 🙂`,
       status: 'success',
       duration: 3000,
       isClosable: true,
