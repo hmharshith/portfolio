@@ -48,7 +48,7 @@ const PageHeader = () => {
         <GridItem colSpan={9}>
           <Center>
             <Link as={NextLink} href='/' fontWeight={600} textUnderlineOffset={5}>
-              <Avatar size='xs' name='Harshith HM' bg='orange.400' />
+              <Avatar size='xs' name='H M' bg='orange.400' />
             </Link>
             <Center>
               <NavLink href='/projects' isActive={pathName == '/projects'} label='Projects' isMobile />
