@@ -38,7 +38,7 @@ export default function Home() {
                 <Heading ml={'10px'}>
                   <TypeWriter
                     content='Harshith HM'
-                    typeAfter={500}
+                    typeAfter={700}
                   />
                 </Heading>
               </GridItem>
