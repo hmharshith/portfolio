@@ -29,7 +29,7 @@ export default function Home() {
               <GridItem>
                 <Motion
                   defaultStyle={{ translateX: -50 }}
-                  style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
+                  style={{ translateX: spring(0, { stiffness: 150, damping: 6 }) }}
                 >
                   {value => <Text fontSize={'large'} style={{ transform: `translateX(${value.translateX}px)` }}>
                     👋 Hello, My name is
@@ -45,7 +45,7 @@ export default function Home() {
               <GridItem mt={6}>
                 <Motion
                   defaultStyle={{ translateX: 100 }}
-                  style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
+                  style={{ translateX: spring(0, { stiffness: 150, damping: 6 }) }}
                 >
                   {value => <Image
                     src={'/freelancer_optimized.png'}
@@ -73,7 +73,7 @@ export default function Home() {
               <GridItem colSpan={3} mt={12}>
                 <Motion
                   defaultStyle={{ translateX: -100 }}
-                  style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
+                  style={{ translateX: spring(0, { stiffness: 150, damping: 5 }) }}
                 >
                   {value => <Text fontSize={'large'} style={{ transform: `translateX(${value.translateX}px)` }}>
                     👋 Hello, My name is
@@ -91,7 +91,7 @@ export default function Home() {
               <GridItem colSpan={2}>
                 <Motion
                   defaultStyle={{ translateX: 220 }}
-                  style={{ translateX: spring(0, { stiffness: 120, damping: 9 }) }}
+                  style={{ translateX: spring(0, { stiffness: 150, damping: 6 }) }}
                 >
                   {value => <Image
                     src={'/freelancer_optimized.png'}
