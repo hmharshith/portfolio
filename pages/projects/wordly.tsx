@@ -62,6 +62,7 @@ const Wordly = () => {
   const popKeyPad = () => {
     if (isMobileDevice()) {
       document.getElementById('hidden-input')?.focus();
+      document.getElementById('hidden-input')?.click();
     }
   }
 
