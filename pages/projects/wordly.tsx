@@ -60,10 +60,11 @@ const Wordly = () => {
   }, [pressedKey, keyPressCount]);
 
   const popKeyPad = () => {
+    console.log('dssds')
     // if (isMobileDevice()) {
-      document.getElementById('hidden-input')?.focus();
-      document.getElementById('hidden-input')?.click();
-   // }
+    document.getElementById('hidden-input')?.focus();
+    document.getElementById('hidden-input')?.click();
+    // }
   }
 
   return (
@@ -96,7 +97,6 @@ const Wordly = () => {
                     str={words[i][j]?.ch ?? ''}
                     result={words[i][j]?.status}
                   />)}
-                <Input type={'text'} display='none' id='hidden-input' />
                 {i == currentTurn && new Array(WordlyConfig.numberOfLettersInTheWord)
                   .fill({}).map((_, j) => <WordlySingleInput
                     key={`letter_curr_${j}`}
@@ -157,6 +157,7 @@ const Wordly = () => {
           </div>
         </ProjectContainer>
         <HowToPlayModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <Input type={'text'} id='hidden-input' hidden />
       </main>
     </>)
 }
