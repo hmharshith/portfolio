@@ -1,11 +1,12 @@
 import ProjectContainer from "@/components/ProjectContainer";
 import useKeyPress from "@/hooks/useKeyPress";
 import { applyWordly, LetterStatus, WordlyConfig, WordlyResponse } from "@/projectHelpers/wordly";
-import { Box, Center, Divider, Flex, Heading, Text, VStack, useToast, Card, CardBody, Container, Stack, CardFooter, Button, UseToastOptions, ToastId, useColorMode, Modal, Image, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, ListItem, UnorderedList, Link } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Heading, Text, VStack, useToast, Card, CardBody, Container, Stack, CardFooter, Button, UseToastOptions, ToastId, useColorMode, Modal, Image, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, ListItem, UnorderedList, Link, Input } from "@chakra-ui/react";
 import Head from "next/head"
 import { useEffect, useMemo, useState } from "react";
 import cloneDeep from "lodash.clonedeep";
 import { ArrowForwardIcon, InfoIcon } from "@chakra-ui/icons";
+import { isMobileDevice } from "@/projectHelpers/util";
 
 type WordlyState = {
   words: WordlyResponse[],
@@ -23,7 +24,7 @@ const Wordly = () => {
   const { CURR_WORD, input, currentTurn, words, gameOver } = state;
   const { pressedKey, keyPressCount } = useKeyPress('ALPHA');
   const toast = useToast();
-  console.log(CURR_WORD)
+
   useEffect(() => {
     if (pressedKey == undefined || state.gameOver != undefined) {
       return;
@@ -58,6 +59,12 @@ const Wordly = () => {
     setState(newState);
   }, [pressedKey, keyPressCount]);
 
+  const popKeyPad = () => {
+    if (isMobileDevice()) {
+      document.getElementById('hidden-input')?.focus();
+    }
+  }
+
   return (
     <>
       <Head>
@@ -80,7 +87,7 @@ const Wordly = () => {
               </Link>
             </Heading>
             <Divider mb={10} mt={2} />
-            {state.words.map((_, i) => <VStack my='14px' key={`word_${i}`}>
+            {state.words.map((_, i) => <VStack my='14px' key={`word_${i}`} onClick={popKeyPad}>
               <Center>
                 {i < currentTurn && new Array(WordlyConfig.numberOfLettersInTheWord)
                   .fill({}).map((_, j) => <WordlySingleInput
@@ -88,6 +95,7 @@ const Wordly = () => {
                     str={words[i][j]?.ch ?? ''}
                     result={words[i][j]?.status}
                   />)}
+                <Input type={'text'} display='none' id='hidden-input' />
                 {i == currentTurn && new Array(WordlyConfig.numberOfLettersInTheWord)
                   .fill({}).map((_, j) => <WordlySingleInput
                     key={`letter_curr_${j}`}
@@ -166,15 +174,12 @@ const WordlySingleInput = ({ str, result }: { str: string, result?: 'GRAY' | 'YE
   </Flex>
 }
 
-const getInitialState = (): WordlyState => {
-  console.log('hello')
-  return {
-    words: [{}],
-    currentTurn: 0,
-    input: '',
-    CURR_WORD: WordlyConfig.words[Math.floor(Math.random() * 1000) % WordlyConfig.words.length],
-  }
-};
+const getInitialState = (): WordlyState => ({
+  words: [{}],
+  currentTurn: 0,
+  input: '',
+  CURR_WORD: WordlyConfig.words[Math.floor(Math.random() * 1000) % WordlyConfig.words.length],
+});
 
 const colorMap: { [key: string]: string[] } = {
   GRAY: ['gray.100', 'gray.600'],

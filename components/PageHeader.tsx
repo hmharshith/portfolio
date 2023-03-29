@@ -1,10 +1,11 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Avatar, Center, Grid, GridItem, Link, Show, useColorMode, useToast } from "@chakra-ui/react"
-import { SunIcon } from '@chakra-ui/icons';
+import { Avatar, Button, Center, Grid, GridItem, Link, Menu, MenuButton, MenuItem, MenuList, Show, useColorMode, useToast } from "@chakra-ui/react"
+import { ChevronDownIcon, SunIcon } from '@chakra-ui/icons';
 
 const PageHeader = () => {
-  const pathName = useRouter().pathname;
+  const router = useRouter();
+  const pathName = router.pathname;
   const { colorMode, toggleColorMode } = useColorMode();
   const toast = useToast();
 
@@ -51,7 +52,19 @@ const PageHeader = () => {
               <Avatar size='xs' name='H M' bg='orange.400' />
             </Link>
             <Center>
-              <NavLink href='/projects' isActive={pathName == '/projects'} label='Projects' isMobile />
+              <Menu>
+                <MenuButton
+                  ml={6}
+                  fontWeight={600}
+                  textUnderlineOffset={6}
+                  textDecorationLine={pathName.startsWith(`/projects`) ? 'underline' : undefined}
+                >
+                  Projects
+                </MenuButton>
+                <MenuList>
+                  <MenuItem onClick={() => router.push(`/projects/wordly`)}>Wordly</MenuItem>
+                </MenuList>
+              </Menu>
               <NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' isMobile />
               <NavLink href='/about' isActive={pathName == '/about'} label='About' isMobile />
             </Center>
