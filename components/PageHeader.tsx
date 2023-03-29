@@ -29,7 +29,7 @@ const PageHeader = () => {
         <GridItem colSpan={8}>
           <Center>
             <NavLink href='/' isActive={pathName == '' || pathName == '/'} label='Home' />
-            <NavLink href='/projects' isActive={pathName == '/projects'} label='Projects' />
+            <NavLink href='/projects/wordly' isActive={pathName == '/projects/wordly'} label='Projects' />
             <NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' />
             <NavLink href='/about' isActive={pathName == '/about'} label='About' />
           </Center>
