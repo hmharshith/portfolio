@@ -133,7 +133,7 @@ const Wordly = () => {
                   <Box>
                     <Heading size={'md'}>Max Attempts Reached!</Heading>
                     <Text>
-                      That's Ok! Losing is part of the game. If you never lose, you are never truly tested, and never forced to grow.
+                      That&apos;s Ok! Losing is part of the game. If you never lose, you are never truly tested, and never forced to grow.
                     </Text>
                   </Box>
                 </CardBody>
