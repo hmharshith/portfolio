@@ -60,10 +60,10 @@ const Wordly = () => {
   }, [pressedKey, keyPressCount]);
 
   const popKeyPad = () => {
-    if (isMobileDevice()) {
+    // if (isMobileDevice()) {
       document.getElementById('hidden-input')?.focus();
       document.getElementById('hidden-input')?.click();
-    }
+   // }
   }
 
   return (
