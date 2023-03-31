@@ -1,7 +1,9 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Avatar, Button, Center, Grid, GridItem, Link, Menu, MenuButton, MenuItem, MenuList, Show, useColorMode, useToast } from "@chakra-ui/react"
+import { Avatar, Button, Center, Grid, GridItem, Link, Menu, MenuButton, MenuItem, MenuList, Show, Text, useColorMode, useToast } from "@chakra-ui/react"
 import { ChevronDownIcon, SunIcon } from '@chakra-ui/icons';
+import { Project } from '@/projectHelpers/util';
+import { ProjectLineItem } from './ProjectContainer';
 
 const PageHeader = () => {
   const router = useRouter();
@@ -31,7 +33,7 @@ const PageHeader = () => {
           <Center>
             <NavLink href='/' isActive={pathName == '' || pathName == '/'} label='Home' />
             <NavLink href='/projects/wordly' isActive={pathName == '/projects/wordly'} label='Projects' />
-            <NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' />
+            {/*<NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' />*/}
             <NavLink href='/about' isActive={pathName == '/about'} label='About' />
           </Center>
         </GridItem>
@@ -48,9 +50,10 @@ const PageHeader = () => {
       >
         <GridItem colSpan={9}>
           <Center>
-            <Link as={NextLink} href='/' fontWeight={600} textUnderlineOffset={5}>
+            <NavLink href='/' isActive={pathName == '/' || pathName == ''} label='Home' isMobile />
+            {/*<Link as={NextLink} href='/' fontWeight={600} textUnderlineOffset={5}>
               <Avatar size='xs' name='H M' bg='orange.400' />
-            </Link>
+            </Link>*/}
             <Center>
               <Menu>
                 <MenuButton
@@ -61,11 +64,14 @@ const PageHeader = () => {
                 >
                   Projects
                 </MenuButton>
-                <MenuList>
-                  <MenuItem onClick={() => router.push(`/projects/wordly`)}>Wordly</MenuItem>
+                <MenuList p={2}>
+                  <Text fontWeight={600} mb={1}>Games</Text>
+                  <ProjectLineItem project={Project.Wordly} />
+                  <Text fontWeight={600} mt={4} mb={1}>Packages</Text>
+                  <ProjectLineItem project={Project.Keypad} />
                 </MenuList>
               </Menu>
-              <NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' isMobile />
+              {/*<NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' isMobile />*/}
               <NavLink href='/about' isActive={pathName == '/about'} label='About' isMobile />
             </Center>
           </Center>

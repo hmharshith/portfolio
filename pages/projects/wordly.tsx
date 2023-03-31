@@ -1,12 +1,15 @@
 import ProjectContainer from "@/components/ProjectContainer";
 import useKeyPress from "@/hooks/useKeyPress";
 import { applyWordly, LetterStatus, WordlyConfig, WordlyResponse } from "@/projectHelpers/wordly";
-import { Box, Center, Divider, Flex, Heading, Text, VStack, useToast, Card, CardBody, Container, Stack, CardFooter, Button, UseToastOptions, ToastId, useColorMode, Modal, Image, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, ListItem, UnorderedList, Link, Input } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Heading, Text, VStack, useToast, Card, CardBody, Container, Stack, CardFooter, Button, UseToastOptions, ToastId, useColorMode, Modal, Image, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, ListItem, UnorderedList, Link, Input, Show, HStack, Accordion, AccordionItem, AccordionIcon, AccordionPanel, AccordionButton } from "@chakra-ui/react";
 import Head from "next/head"
 import { useEffect, useMemo, useState } from "react";
 import cloneDeep from "lodash.clonedeep";
 import { ArrowForwardIcon, InfoIcon } from "@chakra-ui/icons";
-import { isMobileDevice } from "@/projectHelpers/util";
+// import { isMobileDevice } from "@/projectHelpers/util";
+import { AlphabetOnlyKeypad } from "rc-keypad";
+import { useRouter } from "next/router";
+import { Project } from "@/projectHelpers/util";
 
 type WordlyState = {
   words: WordlyResponse[],
@@ -24,13 +27,15 @@ const Wordly = () => {
   const { CURR_WORD, input, currentTurn, words, gameOver } = state;
   const { pressedKey, keyPressCount } = useKeyPress('ALPHA');
   const toast = useToast();
+  const { colorMode } = useColorMode();
+  const router = useRouter();
 
-  useEffect(() => {
-    if (pressedKey == undefined || state.gameOver != undefined) {
+  const handleInput = (inputKey?: string) => {
+    if (inputKey == undefined || state.gameOver != undefined) {
       return;
     }
     const newState = cloneDeep(state);
-    if (state.input.length == WordlyConfig.numberOfLettersInTheWord && pressedKey == 'Enter') {
+    if (state.input.length == WordlyConfig.numberOfLettersInTheWord && inputKey == 'Enter') {
       const wordlyOutput = applyWordly(CURR_WORD, newState.input);
       newState.words[currentTurn] = wordlyOutput;
       if (wordlyOutput.success) {
@@ -50,22 +55,16 @@ const Wordly = () => {
         }
       }
     }
-    else if (state.input.length < WordlyConfig.numberOfLettersInTheWord && pressedKey.length == 1) {
-      newState.input += pressedKey;
+    else if (state.input.length < WordlyConfig.numberOfLettersInTheWord && inputKey.length == 1) {
+      newState.input += inputKey;
     }
-    else if (state.input.length > 0 && pressedKey == 'Backspace') {
+    else if (state.input.length > 0 && inputKey == 'Backspace') {
       newState.input = newState.input.substring(0, newState.input.length - 1)
     }
     setState(newState);
-  }, [pressedKey, keyPressCount]);
-
-  const popKeyPad = () => {
-    console.log('dssds')
-    // if (isMobileDevice()) {
-    document.getElementById('hidden-input')?.focus();
-    document.getElementById('hidden-input')?.click();
-    // }
   }
+
+  useEffect(() => handleInput(pressedKey), [pressedKey, keyPressCount]);
 
   return (
     <>
@@ -75,9 +74,9 @@ const Wordly = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <ProjectContainer>
+        <ProjectContainer currentProject={Project.Wordly}>
           <div>
-            <Heading colorScheme='yellow'>
+            <Heading>
               Wordly Game
               <Link variant={'link'} ml={4}
                 onClick={() => setShowModal(true)}
@@ -89,7 +88,27 @@ const Wordly = () => {
               </Link>
             </Heading>
             <Divider mb={10} mt={2} />
-            {state.words.map((_, i) => <VStack my='14px' key={`word_${i}`} onClick={popKeyPad}>
+            <Show above="lg">
+              <Box position={'fixed'} right={2} bottom={10} minW='400px' >
+                <Accordion allowToggle>
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex='1' textAlign='left'>
+                          Virtual Keypad
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel>
+                      <AlphabetOnlyKeypad onKeyPress={(key) => handleInput(key)} colorMode={colorMode} />
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+              </Box>
+            </Show>
+
+            {state.words.map((_, i) => <VStack my='14px' key={`word_${i}`}>
               <Center>
                 {i < currentTurn && new Array(WordlyConfig.numberOfLettersInTheWord)
                   .fill({}).map((_, j) => <WordlySingleInput
@@ -127,7 +146,12 @@ const Wordly = () => {
                 <Divider />
                 <CardFooter>
                   <Button float={'right'} colorScheme='yellow' onClick={() => setState(getInitialState())}>Play Again</Button>
-                  <Button float={'right'} ml={6} rightIcon={<ArrowForwardIcon />}>View more projects</Button>
+                  <Button
+                    float={'right'}
+                    ml={6}
+                    rightIcon={<ArrowForwardIcon />}
+                    onClick={() => router.push(`/projects/${Project.Keypad.toLocaleLowerCase()}`)}
+                  >View more projects</Button>
                 </CardFooter>
               </Stack>
             </Card>
@@ -149,7 +173,11 @@ const Wordly = () => {
                 <Divider />
                 <CardFooter>
                   <Button float={'right'} colorScheme='yellow' onClick={() => setState(getInitialState())}>Play Again</Button>
-                  <Button float={'right'} ml={6} rightIcon={<ArrowForwardIcon />}>View more projects</Button>
+                  <Button
+                    onClick={() => router.push(`/projects/${Project.Keypad.toLocaleLowerCase()}`)}
+                    float={'right'}
+                    ml={6}
+                    rightIcon={<ArrowForwardIcon />}>View more projects</Button>
                 </CardFooter>
               </Stack>
             </Card>
@@ -157,8 +185,13 @@ const Wordly = () => {
           </div>
         </ProjectContainer>
         <HowToPlayModal isOpen={showModal} onClose={() => setShowModal(false)} />
-        <Input type={'text'} id='hidden-input' hidden />
       </main>
+      {<Show below="md">
+        <Box pt={'175px'} />
+        <Box position='fixed' bottom={0} w='100%' m={0}>
+          <AlphabetOnlyKeypad onKeyPress={(key) => handleInput(key)} colorMode={colorMode} />
+        </Box>
+      </Show>}
     </>)
 }
 
@@ -201,7 +234,7 @@ const manageToast = (newState: WordlyState, CURR_WORD: string, toast: { (options
     });
   }
   else */
-  if (newState.currentTurn == 2 && !toast.isActive('hint-toast')) {
+  if (newState.currentTurn == 0 && !toast.isActive('hint-toast')) {
     toast({
       id: 'hint-toast',
       title: 'Here is the hint for you 🤫',
@@ -232,7 +265,7 @@ const HowToPlayModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
         <UnorderedList mb={6}>
           <ListItem>Each guess must be a valid 5 letter word. Hit the enter button to submit.</ListItem>
           <ListItem>After each guess, the color of the tiles will change to show how close your guess was to the word.</ListItem>
-          <ListItem>Simply type the guess word from your keypad / keyboard to get started!</ListItem>
+          <ListItem>Simply type the guess word from your keyboard or virtual keypad to get started!</ListItem>
         </UnorderedList>
         <Image
           src="https://wordlewebsite.com/upload/imgs/wordle-example.png"
