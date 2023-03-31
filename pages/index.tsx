@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>Harshith HM</title>
         <meta name="description" content="Portfolio of Harshith HM" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
       </Head>
       <main className='main'>
         <SlideFade in={true} offsetX={'400px'}>
