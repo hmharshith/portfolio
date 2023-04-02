@@ -16,7 +16,7 @@ export type GameContextType = {
   drawCard: () => void,
   // When user wishes to hold the drawn card.
   holdCard: () => void,
-  // When user wishes to skip drawing cards
+  // When user wishes to skip the drawn cards
   // Also triggered when user is automatically skipped when the drawn card exceeds the target score 21.
   skipPlayer: () => void,
   // Reset the game context by retaining the players information
