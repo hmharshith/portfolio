@@ -32,12 +32,12 @@ const OnGoingStatus = () => {
         <Thead>
           <Tr>
             <Th>Nick Name</Th>
-            <Th>Holding Cards</Th>
+            <Th>Cards in Hand</Th>
             <Th>Status</Th>
           </Tr>
         </Thead>
         <Tbody>
-          {playersInfo.map(player => <Tr>
+          {playersInfo.map(player => <Tr border={status.currentPlayerId == player.id ? '2px solid rgba(34, 195, 94, 0.6)' : undefined}>
             <Td>{player.nickName}</Td>
             <Td>{playersContext[player.id]?.drawnCards?.length ?? 0}</Td>
             <Td>{!status.skippedPlayers.includes(player.id)
