@@ -2,10 +2,12 @@
 export enum Project {
   Wordly = 'Wordly',
   Keypad = 'Keypad',
+  BlackJack = 'black-jack',
 }
 export const ProjectNames: { [key: string]: string } = {
   [Project.Wordly]: 'Wordly Game',
   [Project.Keypad]: 'Simple Keypad',
+  [Project.BlackJack]: 'Card Game of 21 (Black Jack)'
 }
 
 export const isMobileDevice = () => {

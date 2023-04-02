@@ -67,6 +67,7 @@ const PageHeader = () => {
                 <MenuList p={2}>
                   <Text fontWeight={600} mb={1}>Games</Text>
                   <ProjectLineItem project={Project.Wordly} />
+                  <ProjectLineItem project={Project.BlackJack} />
                   <Text fontWeight={600} mt={4} mb={1}>Packages</Text>
                   <ProjectLineItem project={Project.Keypad} />
                 </MenuList>
