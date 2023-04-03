@@ -115,8 +115,8 @@ const performPlayerTransition = (context: GameContextType) => {
     // Transition to the next user
     const allowedPlayers = playersInfo
       .filter(player => !status.skippedPlayers.includes(player.id));
-    const currentPlayerIndex = allowedPlayers.findIndex(player => player.id == status.currentPlayerId);
-    const nextPlayer = allowedPlayers[(currentPlayerIndex + 1) % allowedPlayers.length];
+    const currentPlayerIndex = playersInfo.findIndex(player => player.id == status.currentPlayerId);
+    const nextPlayer = allowedPlayers.find(player => player.id > currentPlayerIndex) ?? allowedPlayers[0];
     newContext.status.currentPlayerId = nextPlayer.id;
     newContext.status.gameUiState = 'GAME_DASHBOARD';
   }

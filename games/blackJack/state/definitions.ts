@@ -4,9 +4,9 @@ export type GameContextType = {
   deck?: Deck,
   // Static player details: id, nick name (This app takes those details from user input)
   playersInfo: PlayerInput[],
-  // context of each player: Drawn cards, score
+  // context of each player: Drawn & holding cards, current score
   playersContext: { [key: number]: PlayerContext },
-  // Game's status at any given time: is game over, current player id, List<id> of all skipped players
+  // Game's status at any given time: current player id, List<id> of all skipped players
   status: StatusContext;
   // Handler when user submits the player details
   onInputSubmit: (nickNames: string[]) => void,
