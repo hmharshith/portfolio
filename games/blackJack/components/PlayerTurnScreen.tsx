@@ -60,7 +60,8 @@ const PlayerTurnScreen = () => {
               context.skipPlayer();
               setBtnClicked('SKIP');
             }}
-            ml={4}
+            ml={[0, 4]}
+            mt={[4, 0]}
             colorScheme='red'
             isLoading={isLoading && btnClicked == 'SKIP'}
             disabled={isLoading && btnClicked == 'DRAW'}
@@ -92,7 +93,8 @@ const PlayerTurnScreen = () => {
                 context.skipPlayer();
                 setBtnClicked('SKIP');
               }}
-              ml={4}
+              ml={[0, 4]}
+              mt={[4, 0]}
               colorScheme='red'
             >
               Skip All Draws!

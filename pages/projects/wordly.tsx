@@ -150,7 +150,7 @@ const Wordly = () => {
                     float={'right'}
                     ml={6}
                     rightIcon={<ArrowForwardIcon />}
-                    onClick={() => router.push(`/projects/${Project.Keypad.toLocaleLowerCase()}`)}
+                    onClick={() => router.push(`/projects/${Project.BlackJack.toLocaleLowerCase()}`)}
                   >View more projects</Button>
                 </CardFooter>
               </Stack>
