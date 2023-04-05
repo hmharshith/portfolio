@@ -53,7 +53,7 @@ const HowToPlayModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             They&apos;ll loose the game if another player scores more(≤21). eg. Player 1 chooses to skip their turn at score 18. If Player 2 scores between 19-21, then player 2 wins.</ListItem>
           <ListItem>If the player draws the card whose value exceeds his/her score over 21 then the player will be automatically skipped for any further draws.</ListItem>
           <ListItem>An ace is worth 11. Face cards are worth 10. Any other number card is worth the number.</ListItem>
-          <ListItem>Players can view the score board and each player's drawn cards after the game (i.e when all turns are exhausted)</ListItem>
+          <ListItem>Players can view the score board and each player&apos;s drawn cards after the game (i.e when all turns are exhausted)</ListItem>
         </UnorderedList>
       </ModalBody>
       <ModalFooter>
