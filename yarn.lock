@@ -2882,10 +2882,10 @@ raf@^3.1.0:
   dependencies:
     performance-now "^2.1.0"
 
-rc-keypad@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/rc-keypad/-/rc-keypad-1.0.2.tgz#657ca2d1cc3cc61af64c37b616a9f142aad3c3ad"
-  integrity sha512-2kDR49aMmt/7SrjW01tWYXYhr+L8pOIuVQCfXi/BZ+aHwAJnb8DGRXb77L0efjcaVK/fEqJA7/PBCH/Pft0s2A==
+rc-keypad@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/rc-keypad/-/rc-keypad-1.0.4.tgz#a5f949da94d8ee988f68e5f8245d688dd046d3e8"
+  integrity sha512-kceA5/XTGEbGjOkFJe/v1p9541WXjc2e2tsVvbg2PzaMNlDKP4MhbxflcoR2ZAeb9fz7qfy/PrvHiNvceTBLWA==
 
 react-clientside-effect@^1.2.6:
   version "1.2.6"
