@@ -12,7 +12,7 @@ const SnakeAndLadder = () => {
     </Head>
     <main className='main'>
       <PageHeader />
-      <Heading>
+      <Heading mt={4}>
         Snake and Ladder
       </Heading>
       <Divider mb={10} mt={2} />
