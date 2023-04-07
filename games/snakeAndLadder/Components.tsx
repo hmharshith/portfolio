@@ -26,7 +26,7 @@ export const Board: React.FC<{ gameState: GameState, rollDice: () => void }> = (
     <HStack>
       <Button
         isLoading={step != null}
-        loadingText={step != null ? 'Moving Pawn' : undefined}
+        loadingText={step != null ? `Moving ${diceValue} steps` : undefined}
         onClick={rollDice}
         mt={[4, 8]}
         colorScheme='blue'
