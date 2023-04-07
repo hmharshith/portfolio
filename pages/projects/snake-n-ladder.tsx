@@ -1,7 +1,5 @@
-import ProjectContainer from "@/components/ProjectContainer"
+import PageHeader from "@/components/PageHeader"
 import App from "@/games/snakeAndLadder/App"
-import { Project } from "@/projectHelpers/util"
-import { InfoIcon } from "@chakra-ui/icons"
 import { Heading, Divider } from "@chakra-ui/react"
 import Head from "next/head"
 
@@ -13,6 +11,7 @@ const SnakeAndLadder = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     </Head>
     <main className='main'>
+      <PageHeader />
       <Heading>
         Snake and Ladder
       </Heading>
