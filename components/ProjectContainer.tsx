@@ -18,6 +18,7 @@ const ProjectContainer: React.FC<ProjectContainerProp> = ({ currentProject, chil
         position='fixed' px='10px' pt='50px'>
         <Text fontWeight={600} mb={1}>Games</Text>
         <ProjectLineItem project={Project.Wordly} />
+        <ProjectLineItem project={Project.SnakeAndLadder} />
         <ProjectLineItem project={Project.BlackJack} />
         <Text fontWeight={600} mt={8} mb={1}>Packages</Text>
         <ProjectLineItem project={Project.Keypad} />

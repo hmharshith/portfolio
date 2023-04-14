@@ -1,6 +1,6 @@
 import { Board, Cell } from "../types";
 
-export const totalRows = 8;
+export const totalRows = 10;
 
 const getCells = (): Cell[] => {
   const output: Cell[] = [];
@@ -23,50 +23,92 @@ const BoardData: Board = {
     {
       name: 'S1',
       type: 'SNAKE',
-      start: 23,
-      end: 8,
+      start: 32,
+      end: 10,
     },
     {
       name: 'S2',
       type: 'SNAKE',
-      start: 33,
-      end: 4,
+      start: 36,
+      end: 6,
     },
     {
       name: 'S3',
       type: 'SNAKE',
-      start: 50,
-      end: 19,
+      start: 62,
+      end: 18,
     },
     {
       name: 'S4',
       type: 'SNAKE',
-      start: 60,
-      end: 40,
+      start: 48,
+      end: 26,
+    },
+    {
+      name: 'S5',
+      type: 'SNAKE',
+      start: 88,
+      end: 24,
+    },
+    {
+      name: 'S6',
+      type: 'SNAKE',
+      start: 95,
+      end: 56,
+    },
+    {
+      name: 'S7',
+      type: 'SNAKE',
+      start: 97,
+      end: 78,
     },
     {
       name: 'L1',
       type: 'LADDER',
-      start: 17,
-      end: 56,
+      start: 1,
+      end: 38,
     },
     {
       name: 'L2',
       type: 'LADDER',
-      start: 2,
-      end: 45,
+      start: 4,
+      end: 14,
     },
     {
       name: 'L3',
       type: 'LADDER',
-      start: 11,
-      end: 29,
+      start: 8,
+      end: 30,
     },
     {
       name: 'L4',
       type: 'LADDER',
-      start: 13,
-      end: 27,
+      start: 21,
+      end: 42,
+    },
+    {
+      name: 'L5',
+      type: 'LADDER',
+      start: 28,
+      end: 76,
+    },
+    {
+      name: 'L6',
+      type: 'LADDER',
+      start: 50,
+      end: 67,
+    },
+    {
+      name: 'L7',
+      type: 'LADDER',
+      start: 80,
+      end: 99,
+    },
+    {
+      name: 'L8',
+      type: 'LADDER',
+      start: 71,
+      end: 92,
     },
   ]
 }

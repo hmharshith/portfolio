@@ -3,11 +3,13 @@ export enum Project {
   Wordly = 'Wordly',
   Keypad = 'Keypad',
   BlackJack = 'black-jack',
+  SnakeAndLadder = 'snake-n-ladder',
 }
 export const ProjectNames: { [key: string]: string } = {
   [Project.Wordly]: 'Wordly Game',
   [Project.Keypad]: 'Simple Keypad',
-  [Project.BlackJack]: 'Card Game of 21 (Black Jack)'
+  [Project.BlackJack]: 'Card Game of 21 (Black Jack)',
+  [Project.SnakeAndLadder]: 'Snake And Ladder',
 }
 
 export const isMobileDevice = () => {

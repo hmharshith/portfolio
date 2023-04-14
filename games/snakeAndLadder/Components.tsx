@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "@chakra-ui/icons";
-import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Container, Divider, FormControl, FormLabel, Heading, HStack, Input, Select, Stack, Tag, Text } from "@chakra-ui/react"
+import { Avatar, Box, Button, Card, CardBody, CardFooter, CardHeader, Container, Divider, FormControl, FormLabel, Heading, HStack, Input, Select, Stack, Tag, Text, VStack } from "@chakra-ui/react"
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { GetCellData, getCellBg, getCellWormHoleContent, getWinner } from "./state/functions";
@@ -8,7 +8,6 @@ import { CellProps, GameState, Player } from "./types"
 export const Board: React.FC<{ gameState: GameState, rollDice: () => void }> = ({ gameState, rollDice }) => {
   const { board, diceValue, currentPlayerId, playerContext, step } = gameState;
   const currPlayerName = playerContext[currentPlayerId].name;
-  console.log(step);
   return <Box display={'flex'} flexDirection='column'>
     <Tag
       variant={'solid'}
@@ -19,7 +18,23 @@ export const Board: React.FC<{ gameState: GameState, rollDice: () => void }> = (
       <Text fontWeight={600} fontSize={18}>
         {diceValue == 0 || diceValue == null ? `${currPlayerName}'s turn!` : `${currPlayerName} has rolled ${diceValue}`}
       </Text>
-    </Tag><Box display='grid' gridTemplateColumns={new Array(Math.sqrt(board.cells.length)).fill('auto').join(' ')}>
+    </Tag>
+    <Box
+      width={['100%', '70%']}
+      marginLeft={[0, '15%']}
+      display='grid'
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: '23%',
+        right: '0px',
+        bottom: '9%',
+        left: ['0px', '20%'],
+        backgroundColor: 'rgba(232,238,250,0.5)',
+      }}
+      style={{ background: `url('/i984_pimgpsh_fullsize_distr.jpg') no-repeat center center`, backgroundSize: '100% 100%' }}
+      gridTemplateColumns={new Array(Math.sqrt(board.cells.length)).fill('auto').join(' ')}
+    >
       {board.cells.slice().reverse()
         .map(cell => <Cell key={`cell_${cell.value}`} {...GetCellData(cell.value, gameState)} />)}
     </Box>
@@ -35,15 +50,15 @@ export const Board: React.FC<{ gameState: GameState, rollDice: () => void }> = (
         Role the Dice
       </Button>
     </HStack>
-  </Box>
+  </Box >
 }
 
 export const Cell: React.FC<CellProps> = (props) => {
   const { value, playerNames } = props;
-  return <><Box border='1px solid' h={[16, 20]} bg={getCellBg(props)} p={[1, 2]}>
+  return <><Box border='1px solid' h={[12, 12, 14]} /*bg={getCellBg(props)}*/ p={[1, 2]}>
     <Text fontSize={10}>{value}</Text>
     {playerNames && playerNames.map(player => <Avatar key={player} size={['xs', 'sm']} name={player} />)}
-    <Text fontWeight={600} fontSize={12} textAlign='right'>{getCellWormHoleContent(props)}</Text>
+    {/*<Text fontWeight={600} fontSize={12} textAlign='right'>{getCellWormHoleContent(props)}</Text>*/}
   </Box>
 
   </>
