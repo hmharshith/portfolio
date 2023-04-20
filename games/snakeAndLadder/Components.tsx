@@ -30,7 +30,7 @@ export const Board: React.FC<{ gameState: GameState, rollDice: () => void }> = (
         right: '0px',
         bottom: '9%',
         left: ['0px', '20%'],
-        backgroundColor: 'rgba(232,238,250,0.5)',
+        backgroundColor: 'rgba(0,0,0,0.55)',
       }}
       style={{ background: `url('/i984_pimgpsh_fullsize_distr.jpg') no-repeat center center`, backgroundSize: '100% 100%' }}
       gridTemplateColumns={new Array(Math.sqrt(board.cells.length)).fill('auto').join(' ')}
