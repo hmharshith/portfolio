@@ -12,7 +12,7 @@ export const Arena: React.FC = () => {
   >
     <Flex h={'100%'} w={'100%'}>
       {new Array(numLanes).fill(0).map((_, i) => <Box key={i} width={`${100 / numLanes}%`} h={'100%'} borderRight={i < getLanesCount() - 1 ?
-        "1px dashed #CCC" : ""}>
+        `1px dashed ${colorMode == 'dark' ? '#CCC' : 'gray'}` : ""}>
         {context.obstacles
           .filter(obs => obs.position.lane == i)
           .map((obs, j) => <Image key={j} src='/car_obs.png' alt='obstacle' width={'40px'} height={'10%'} position='absolute' marginLeft={`${MarginLeftForLanes[numLanes]}%`} top={`${obs.position.y}%`} textAlign='center' />)}
