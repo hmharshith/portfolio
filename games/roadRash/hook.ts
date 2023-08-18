@@ -51,7 +51,7 @@ const intialGameContextValue: GameContextType = {
     myCar: {
       position: {
         lane: 0,
-        y: 80,
+        y: 85,
       },
       speed: 0,
       type: MovingObjectType.USER_CAR,
@@ -93,7 +93,7 @@ export const useRoadRash = (): GameContextType => {
           ...prevState.user.myCar,
           position: {
             lane: getRandomLane(),
-            y: 80,
+            y: 85,
           },
         }
       }
