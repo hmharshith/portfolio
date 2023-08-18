@@ -32,7 +32,7 @@ const PageHeader = () => {
         <GridItem colSpan={8}>
           <Center>
             <NavLink href='/' isActive={pathName == '' || pathName == '/'} label='Home' />
-            <NavLink href='/projects/wordly' isActive={pathName == '/projects/wordly'} label='Projects' />
+            <NavLink href='/projects/road-rash' isActive={pathName == '/projects/road-rash'} label='Projects' />
             {/*<NavLink href='/harshith-resume.pdf' isActive={false} label='Resume' />*/}
             <NavLink href='/about' isActive={pathName == '/about'} label='About' />
           </Center>
@@ -66,6 +66,7 @@ const PageHeader = () => {
                 </MenuButton>
                 <MenuList p={2}>
                   <Text fontWeight={600} mb={1}>Games</Text>
+                  <ProjectLineItem project={Project.RoadRash} />
                   <ProjectLineItem project={Project.Wordly} />
                   <ProjectLineItem project={Project.SnakeAndLadder} />
                   <ProjectLineItem project={Project.BlackJack} />

@@ -17,6 +17,7 @@ const ProjectContainer: React.FC<ProjectContainerProp> = ({ currentProject, chil
         bg={colorMode == 'dark' ? 'blackAlpha.400' : 'gray.100'}
         position='fixed' px='10px' pt='50px'>
         <Text fontWeight={600} mb={1}>Games</Text>
+        <ProjectLineItem project={Project.RoadRash} />
         <ProjectLineItem project={Project.Wordly} />
         <ProjectLineItem project={Project.SnakeAndLadder} />
         <ProjectLineItem project={Project.BlackJack} />

@@ -1,11 +1,13 @@
 
 export enum Project {
+  RoadRash = 'road-rash',
   Wordly = 'Wordly',
   Keypad = 'Keypad',
   BlackJack = 'black-jack',
   SnakeAndLadder = 'snake-n-ladder',
 }
 export const ProjectNames: { [key: string]: string } = {
+  [Project.RoadRash]: 'Road Rash',
   [Project.Wordly]: 'Wordly Game',
   [Project.Keypad]: 'Simple Keypad',
   [Project.BlackJack]: 'Card Game of 21 (Black Jack)',
