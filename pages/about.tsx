@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { getMyAvatar } from "@/projectHelpers/util";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
-import { Avatar, Box, Card, CardBody, CardHeader, Center, Code, Container, Divider, Heading, HStack, Link, ListItem, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Card, CardBody, CardHeader, Center, Code, Container, Divider, Heading, HStack, Link, ListItem, Tab, Table, TableContainer, TabList, TabPanel, TabPanels, Tabs, Tbody, Td, Text, Th, Tr, UnorderedList, VStack } from "@chakra-ui/react";
 import Head from "next/head"
 
 const About = () => {
@@ -42,25 +42,139 @@ const About = () => {
             </Box>
           </HStack>
           <Box mt={[8, 12]}>
-            <Text fontWeight={600}>Skill Set</Text>
-            <Divider mb={4} />
-            <VStack alignItems={'flex-start'}>
-              <Code p={'2px'}>
-                Javascript | Typescript | HTML | CSS | C#
-              </Code>
-              <Code p={'2px'}>
-                React.js | React Native | Graphql | .Net
-              </Code>
-              <Code p={'2px'}>
-                Hooks | Redux | Webpack | Rollup
-              </Code>
-              <Code p={'2px'}>
-                Jest | Cypress | Nunit | Xunit
-              </Code>
-              <Code p={'2px'}>
-                PSDS &#38; System Design
-              </Code>
-            </VStack>
+            <Text fontWeight={600} mb={4}>Technicals Skills</Text>
+            <Tabs size='md' variant='enclosed'>
+              <TabList>
+                <Tab>Frontend</Tab>
+                <Tab>Backend</Tab>
+                <Tab>Infra</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <TableContainer>
+                    <Table variant={"simple"}>
+                      <Tbody>
+                        <Tr>
+                          <Th>Languages</Th>
+                          <Td>
+                            <SkillSetTag title="Javascript" />
+                            <SkillSetTag title="Typescript" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Frameworks</Th>
+                          <Td>
+                            <SkillSetTag title="ReactJs" />
+                            <SkillSetTag title="React Native" />
+                            <SkillSetTag title="NextJs" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Markup / Styling</Th>
+                          <Td>
+                            <SkillSetTag title="HTML" />
+                            <SkillSetTag title="CSS" />
+                            <SkillSetTag title="SCSS" />
+                            <SkillSetTag title="Tailwind" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Testing</Th>
+                          <Td>
+                            <SkillSetTag title="Jest" />
+                            <SkillSetTag title="Cypress" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Build Tools</Th>
+                          <Td>
+                            <SkillSetTag title="Webpack" />
+                            <SkillSetTag title="Rollup" />
+                          </Td>
+                        </Tr>
+                      </Tbody>
+                    </Table>
+                  </TableContainer>
+                </TabPanel>
+                <TabPanel>
+                  <TableContainer>
+                    <Table variant={"simple"}>
+                      <Tbody>
+                        <Tr>
+                          <Th>Languages</Th>
+                          <Td>
+                            <SkillSetTag title="C#" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Frameworks</Th>
+                          <Td>
+                            <SkillSetTag title=".Net" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Technologies</Th>
+                          <Td>
+                            <SkillSetTag title="Graphql" />
+                            <SkillSetTag title="REST" />
+                            <SkillSetTag title="Message Queues" />
+                            <SkillSetTag title="Caching" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Testing</Th>
+                          <Td>
+                            <SkillSetTag title="xUnit" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Databases</Th>
+                          <Td>
+                            <SkillSetTag title="Mysql" />
+                            <SkillSetTag title="Postgres" />
+                            <SkillSetTag title="MongoDb" />
+                          </Td>
+                        </Tr>
+                      </Tbody>
+                    </Table>
+                  </TableContainer>
+                </TabPanel>
+                <TabPanel>
+                  <TableContainer>
+                    <Table variant={"simple"}>
+                      <Tbody>
+                        <Tr>
+                          <Th>AWS</Th>
+                          <Td>
+                            <SkillSetTag title="RDS" />
+                            <SkillSetTag title="S3" />
+                            <SkillSetTag title="Redis" />
+                            <SkillSetTag title="Memcached" /> <br /> <br />
+                            <SkillSetTag title="Docker (Kubernetes)" />
+                            <SkillSetTag title="Lambda" />
+                            <SkillSetTag title="Cloudfront" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Others</Th>
+                          <Td>
+                            <SkillSetTag title="Grafana" />
+                            <SkillSetTag title="Newrelic" />
+                            <SkillSetTag title="InfluxDb (Chronograf)" />
+                            <SkillSetTag title="Scalyr" /> <br /> <br />
+                            <SkillSetTag title="Git" />
+                            <SkillSetTag title="RabbitMq" />
+                            <SkillSetTag title="Jenkins" />
+                            <SkillSetTag title="Retool" />
+                            <SkillSetTag title="Load Testing" />
+                          </Td>
+                        </Tr>
+                      </Tbody>
+                    </Table>
+                  </TableContainer>
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
           </Box>
           <Card mt={6}>
             <CardBody>
@@ -88,6 +202,10 @@ const About = () => {
         </Box>
       </main>
     </>)
+}
+
+const SkillSetTag = ({ title }: { title: string }) => {
+  return <Code px={1} py={0.5} mr={2} rounded='md'>{title}</Code>
 }
 
 export default About;
