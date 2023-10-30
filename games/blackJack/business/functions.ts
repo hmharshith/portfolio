@@ -37,7 +37,6 @@ const submitPlayersInput = (nickNames: string[], context: GameContextType) => {
 const initiateGame = (context: GameContextType) => MakeDeckApiRequest<Deck>(config.getShuffledNewDeckEndpoint)
   .then(res => {
     if (res == null) {
-      // TODO: Network error handling
       return Messages.genericNetworkError;
     }
     return {
