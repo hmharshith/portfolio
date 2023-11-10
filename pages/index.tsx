@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Box, Flex, Grid, GridItem, Heading, Highlight, Link, Show, SlideFade, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, GridItem, Heading, Highlight, Link, Show, SlideFade, Text } from '@chakra-ui/react'
 import TypeWriter from '@/components/TypeWriter'
 import { Motion, spring } from 'react-motion'
 import PageHeader from '@/components/PageHeader'
 import { useEffect, useState } from 'react'
-import { getMyAvatar } from '@/projectHelpers/util'
+import { getMyAvatar, Project } from '@/projectHelpers/util'
+import { ArrowRightIcon } from '@chakra-ui/icons'
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   return (
@@ -113,6 +115,7 @@ export default function Home() {
 
 const MySummary = () => {
   const [showMySummary, setShowMySummary] = useState(false);
+  const { push } = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
@@ -138,6 +141,15 @@ const MySummary = () => {
       <Text mt={6}>
         I 💛 to travel, trek and workout
       </Text>
+      <Button
+        size='sm'
+        colorScheme={'yellow'}
+        mt={4}
+        rightIcon={<ArrowRightIcon />}
+        onClick={() => push(`/projects/${Project.RoadRash}`)}
+      >
+        View Projects
+      </Button>
     </SlideFade>
   </Box>
 }
