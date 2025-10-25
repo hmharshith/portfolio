@@ -207,7 +207,7 @@ const About = () => {
           </Box>
           <Box mt={2} mb={2}>
             <Text fontWeight={"bold"} fontSize={20}>
-              Outside of work 🏋️ 🧗
+              Beyond the Code 🏋️ 🧗
             </Text>
             <Text>
               I am self motivated and ambitious Individual 💯. I have done
