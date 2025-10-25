@@ -1,8 +1,38 @@
 import PageHeader from "@/components/PageHeader";
+import React from "react";
+import Slider from "react-slick";
 import { getMyAvatar } from "@/projectHelpers/util";
-import { InfoOutlineIcon } from "@chakra-ui/icons";
-import { Avatar, Box, Card, CardBody, CardHeader, Center, Code, Container, Divider, Heading, HStack, Link, ListItem, Tab, Table, TableContainer, TabList, TabPanel, TabPanels, Tabs, Tbody, Td, Text, Th, Tr, UnorderedList, VStack } from "@chakra-ui/react";
-import Head from "next/head"
+import {
+  Avatar,
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Center,
+  Code,
+  Container,
+  Divider,
+  Heading,
+  HStack,
+  Link,
+  ListItem,
+  Show,
+  Tab,
+  Table,
+  TableContainer,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Tr,
+  VStack,
+} from "@chakra-ui/react";
+import Head from "next/head";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -14,42 +44,82 @@ const About = () => {
       </Head>
       <main className="main">
         <PageHeader />
-        <Box mx={[2, 2, '20%']} my={[6, 20]}>
+        <Box mx={[2, 2, "20%"]} my={[6, 14]}>
           <Heading mt={[10, 6]}>
             <Avatar src={getMyAvatar()} />
             Harshith H M
           </Heading>
           <Divider />
           <Box mt={4}>
-            <Text fontSize={20}>
-              A committed and motivated Software Engineer with nearly 5 years of experience in fullstack web
-              development (frontend focus) majorly in ReactJs and .Net technologies. I have made an impactful
-              contribution to the products that are scaled to millions of users.
+            <Text fontSize={18}>
+              My day at work involves coding, design discussions, problem
+              solving, code reviews, mentoring juniors and co-ordinating with
+              Product and planning. I love lifting the graphs, solving
+              challenging architectural problems and seeing the ROI for the work
+              myself and our team does. I am quite flexible with the tech stacks
+              as well.
             </Text>
           </Box>
-          <HStack mt={4}>
-            <Box onClick={() => window.open('https://www.linkedin.com/in/hmharshith/')} mr={4} cursor='pointer'>
-              <svg
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                data-supported-dps="24x24" fill="currentColor" width="35" height="35" focusable="false">
-                <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-              </svg>
-            </Box>
-            <Box onClick={() => window.open('https://github.com/hmharshith')} cursor='pointer'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </Box>
-          </HStack>
-          <Box mt={[8, 12]}>
-            <Text fontWeight={600} mb={4}>Technicals Skills</Text>
-            <Tabs size='md' variant='enclosed'>
+
+          <Box mt={[4, 4]}>
+            <Text fontWeight={"bold"} fontSize={20} mb={4}>
+              Technicals Skills
+            </Text>
+            <Tabs size="md" variant="enclosed">
               <TabList>
-                <Tab>Frontend</Tab>
                 <Tab>Backend</Tab>
+                <Tab>Frontend</Tab>
                 <Tab>Infra</Tab>
               </TabList>
               <TabPanels>
+                <TabPanel>
+                  <TableContainer>
+                    <Table variant={"simple"}>
+                      <Tbody>
+                        <Tr>
+                          <Th>Languages</Th>
+                          <Td>
+                            <SkillSetTag title="Typescript" />
+                            <SkillSetTag title="Python" />
+                            <SkillSetTag title="C#" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Frameworks</Th>
+                          <Td>
+                            <SkillSetTag title="Express / Node" />
+                            <SkillSetTag title="FastAPI" />
+                            <SkillSetTag title=".Net" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Technologies</Th>
+                          <Td>
+                            <SkillSetTag title="Graphql" />
+                            <SkillSetTag title="REST" />
+                            <SkillSetTag title="Message Queues" />
+                            <SkillSetTag title="Caching" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Testing</Th>
+                          <Td>
+                            <SkillSetTag title="pytest" />
+                            <SkillSetTag title="xUnit" />
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Th>Databases</Th>
+                          <Td>
+                            <SkillSetTag title="Mysql" />
+                            <SkillSetTag title="Postgres" />
+                            <SkillSetTag title="MongoDb" />
+                          </Td>
+                        </Tr>
+                      </Tbody>
+                    </Table>
+                  </TableContainer>
+                </TabPanel>
                 <TabPanel>
                   <TableContainer>
                     <Table variant={"simple"}>
@@ -96,49 +166,7 @@ const About = () => {
                     </Table>
                   </TableContainer>
                 </TabPanel>
-                <TabPanel>
-                  <TableContainer>
-                    <Table variant={"simple"}>
-                      <Tbody>
-                        <Tr>
-                          <Th>Languages</Th>
-                          <Td>
-                            <SkillSetTag title="C#" />
-                          </Td>
-                        </Tr>
-                        <Tr>
-                          <Th>Frameworks</Th>
-                          <Td>
-                            <SkillSetTag title=".Net" />
-                          </Td>
-                        </Tr>
-                        <Tr>
-                          <Th>Technologies</Th>
-                          <Td>
-                            <SkillSetTag title="Graphql" />
-                            <SkillSetTag title="REST" />
-                            <SkillSetTag title="Message Queues" />
-                            <SkillSetTag title="Caching" />
-                          </Td>
-                        </Tr>
-                        <Tr>
-                          <Th>Testing</Th>
-                          <Td>
-                            <SkillSetTag title="xUnit" />
-                          </Td>
-                        </Tr>
-                        <Tr>
-                          <Th>Databases</Th>
-                          <Td>
-                            <SkillSetTag title="Mysql" />
-                            <SkillSetTag title="Postgres" />
-                            <SkillSetTag title="MongoDb" />
-                          </Td>
-                        </Tr>
-                      </Tbody>
-                    </Table>
-                  </TableContainer>
-                </TabPanel>
+
                 <TabPanel>
                   <TableContainer>
                     <Table variant={"simple"}>
@@ -150,7 +178,7 @@ const About = () => {
                             <SkillSetTag title="S3" />
                             <SkillSetTag title="Redis" />
                             <SkillSetTag title="Memcached" /> <br /> <br />
-                            <SkillSetTag title="Docker (Kubernetes)" />
+                            <SkillSetTag title="Kubernetes" />
                             <SkillSetTag title="Lambda" />
                             <SkillSetTag title="Cloudfront" />
                           </Td>
@@ -159,6 +187,7 @@ const About = () => {
                           <Th>Others</Th>
                           <Td>
                             <SkillSetTag title="Grafana" />
+                            <SkillSetTag title="Terraform" />
                             <SkillSetTag title="Newrelic" />
                             <SkillSetTag title="InfluxDb (Chronograf)" />
                             <SkillSetTag title="Scalyr" /> <br /> <br />
@@ -176,36 +205,148 @@ const About = () => {
               </TabPanels>
             </Tabs>
           </Box>
-          <Card mt={6}>
+          <Box mt={2} mb={2}>
+            <Text fontWeight={"bold"} fontSize={20}>
+              Outside of work 🏋️ 🧗
+            </Text>
+            <Text>
+              I am self motivated and ambitious Individual 💯. I have done
+              several treks and expeditions in Indian Himalayas ⛰️. I love to
+              challenge myself and push the limits 🏋🏽‍♀️
+            </Text>
+          </Box>
+          <Box>
+            <Show above="md">
+              <HStack mb={2} align={"center"} justify={"center"} w={"full"}>
+                <Image
+                  src="/baliPass.jpg"
+                  alt="Bali Pass"
+                  width={350}
+                  height={450}
+                />
+                <Image
+                  src="/upsideDown.jpg"
+                  alt="Upside Down"
+                  width={265}
+                  height={450}
+                />
+              </HStack>
+              <Box w="full">
+                <HStack align={"center"} justify={"center"} w={"full"}>
+                  <Box w="230px">
+                    <video
+                      src={"/videos/pullUps.mp4"}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </Box>
+                  <Box w="230px">
+                    <video
+                      src={"/videos/deadLift.mp4"}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </Box>
+                  <Box w="230px">
+                    <video
+                      src={"/videos/squats.mp4"}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </Box>
+                </HStack>
+              </Box>
+            </Show>
+            <Show below="md">
+              <VStack mb={2} align={"center"} justify={"center"} w={"full"}>
+                <Image
+                  src="/baliPass.jpg"
+                  alt="Bali Pass"
+                  width={350}
+                  height={450}
+                />
+                <Image
+                  src="/upsideDown.jpg"
+                  alt="Upside Down"
+                  width={265}
+                  height={450}
+                />
+                <Box w="230px">
+                  <video
+                    src={"/videos/pullUps.mp4"}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </Box>
+                <Box w="230px">
+                  <video
+                    src={"/videos/deadLift.mp4"}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </Box>
+                <Box w="230px">
+                  <video
+                    src={"/videos/squats.mp4"}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </Box>
+              </VStack>
+            </Show>
+          </Box>
+
+          <Card mt={10}>
             <CardBody>
               <Text fontWeight={600}>
                 This is a personal website and portfolio
               </Text>
               <Text>
-                Built with{' '}
+                Built with{" "}
                 <Link
                   href="https://nextjs.org"
-                  target='_blank'
-                  textDecoration={'underline'}
+                  target="_blank"
+                  textDecoration={"underline"}
                   textUnderlineOffset={2}
                 >
                   Next.js
-                </Link>
-                {' '}and hosted on{' '}
+                </Link>{" "}
+                and hosted on{" "}
                 <Link
-                  textDecoration={'underline'}
+                  textDecoration={"underline"}
                   textUnderlineOffset={2}
-                  href="https://vercel.com" target={'_blank'}>Vercel</Link>
+                  href="https://vercel.com"
+                  target={"_blank"}
+                >
+                  Vercel
+                </Link>
               </Text>
             </CardBody>
           </Card>
         </Box>
       </main>
-    </>)
-}
+    </>
+  );
+};
 
 const SkillSetTag = ({ title }: { title: string }) => {
-  return <Code px={1} py={0.5} mr={2} rounded='md'>{title}</Code>
-}
+  return (
+    <Code px={1} py={0.5} mr={2} rounded="md">
+      {title}
+    </Code>
+  );
+};
 
 export default About;
