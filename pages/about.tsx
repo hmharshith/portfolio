@@ -233,31 +233,20 @@ const About = () => {
               </HStack>
               <Box w="full">
                 <HStack align={"center"} justify={"center"} w={"full"}>
-                  <Box w="230px">
-                    <video
-                      src={"/videos/pullUps.mp4"}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+                  <Box w="350px">
+                    <Image
+                      src="/my_pic_1.jpg"
+                      alt="My Pic 1"
+                      width={350}
+                      height={650}
                     />
                   </Box>
-                  <Box w="230px">
-                    <video
-                      src={"/videos/deadLift.mp4"}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    />
-                  </Box>
-                  <Box w="230px">
-                    <video
-                      src={"/videos/squats.mp4"}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+                  <Box w="350px">
+                    <Image
+                      src="/my_pic_2.jpg"
+                      alt="My Pic 2"
+                      width={350}
+                      height={650}
                     />
                   </Box>
                 </HStack>
@@ -277,31 +266,20 @@ const About = () => {
                   width={265}
                   height={450}
                 />
-                <Box w="230px">
-                  <video
-                    src={"/videos/pullUps.mp4"}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                <Box w="265px">
+                  <Image
+                    src="/my_pic_1.jpg"
+                    alt="My Pic 1"
+                    width={265}
+                    height={550}
                   />
                 </Box>
-                <Box w="230px">
-                  <video
-                    src={"/videos/deadLift.mp4"}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                </Box>
-                <Box w="230px">
-                  <video
-                    src={"/videos/squats.mp4"}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                <Box w="265px">
+                  <Image
+                    src="/my_pic_2.jpg"
+                    alt="My Pic 2"
+                    width={265}
+                    height={550}
                   />
                 </Box>
               </VStack>

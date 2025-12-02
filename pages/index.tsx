@@ -162,7 +162,7 @@ const MySummary = () => {
             query={["Software Engineer", "5 years"]}
             styles={{ bg: "yellow.100", px: "1.5", rounded: "full" }}
           >
-            I&#39;m a Software Tech Lead from Bangalore, India with more than 7
+            I&#39;m a Software Tech Lead from Bangalore, India with 8
             years of experience, currently building an innovative consumer
             product from scratch at
           </Highlight>
