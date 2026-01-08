@@ -211,12 +211,12 @@ const About = () => {
             </Text>
             <Text>
               I am self motivated and ambitious Individual, I thrive on
-              challenges that others avoid 💯 Whether it's tackling complex
+              challenges that others avoid 💯 Whether it&apos;s tackling complex
               problems at work, maintaining discipline through regular strength
               training 💪, or pushing my limits on multi-day Himalayan
               expeditions ⛰️, I bring the same relentless drive to everything I
-              do. I'm not just comfortable with discomfort - I actively seek it
-              out because that's where real growth happens 🚀
+              do. I&apos;m not just comfortable with discomfort - I actively
+              seek it out because that&apos;s where real growth happens 🚀
             </Text>
           </Box>
           <Box>
