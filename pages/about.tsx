@@ -205,14 +205,18 @@ const About = () => {
               </TabPanels>
             </Tabs>
           </Box>
-          <Box mt={2} mb={2}>
+          <Box mt={2} mb={2} id="beyond">
             <Text fontWeight={"bold"} fontSize={20}>
               Beyond the Code 🏋️ 🧗
             </Text>
             <Text>
-              I am self motivated and ambitious Individual 💯. I have done
-              several treks and expeditions in Indian Himalayas ⛰️. I love to
-              challenge myself and push the limits 🏋🏽‍♀️
+              I am self motivated and ambitious Individual, I thrive on
+              challenges that others avoid 💯 Whether it's tackling complex
+              problems at work, maintaining discipline through regular strength
+              training 💪, or pushing my limits on multi-day Himalayan
+              expeditions ⛰️, I bring the same relentless drive to everything I
+              do. I'm not just comfortable with discomfort - I actively seek it
+              out because that's where real growth happens 🚀
             </Text>
           </Box>
           <Box>

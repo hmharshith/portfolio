@@ -162,9 +162,9 @@ const MySummary = () => {
             query={["Software Engineer", "5 years"]}
             styles={{ bg: "yellow.100", px: "1.5", rounded: "full" }}
           >
-            I&#39;m a Software Tech Lead from Bangalore, India with 8
-            years of experience, currently building an innovative consumer
-            product from scratch at
+            I&#39;m a Software Tech Lead from Bangalore, India with 8 years of
+            experience, currently building an innovative consumer product from
+            scratch at
           </Highlight>
           <Link
             href="https://cleartax.in"
@@ -182,7 +182,7 @@ const MySummary = () => {
           colorScheme={"yellow"}
           mt={4}
           rightIcon={<ArrowRightIcon />}
-          onClick={() => push(`/about`)}
+          onClick={() => push(`/about#beyond`)}
         >
           More about me
         </Button>
