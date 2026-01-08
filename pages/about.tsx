@@ -235,7 +235,7 @@ const About = () => {
                 <HStack align={"center"} justify={"center"} w={"full"}>
                   <Box w="350px">
                     <Image
-                      src="/my_pic_1.jpg"
+                      src="/my_pic_3.jpg"
                       alt="My Pic 1"
                       width={350}
                       height={650}
@@ -268,7 +268,7 @@ const About = () => {
                 />
                 <Box w="265px">
                   <Image
-                    src="/my_pic_1.jpg"
+                    src="/my_pic_3.jpg"
                     alt="My Pic 1"
                     width={265}
                     height={550}
